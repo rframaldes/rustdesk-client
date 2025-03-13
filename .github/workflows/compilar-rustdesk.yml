@@ -1,0 +1,22 @@
+name: Compilar nightly
+
+on:
+  schedule:
+    # schedule build every night
+    # - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  run-build-vipsnet:
+    uses: ./.github/workflows/compilar-vipsnet.yml
+    secrets: inherit
+    with:
+      upload-artifact: true
+      upload-tag: "nightly"
+      
+  run-build-flash:
+    uses: ./.github/workflows/compilar-flash.yml
+    secrets: inherit
+    with:
+      upload-artifact: true
+      upload-tag: "nightly"
