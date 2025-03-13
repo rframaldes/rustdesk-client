@@ -1,4 +1,4 @@
-name: Compilar nightly
+name: Compilar nightly para todos os Clientes
 
 on:
   schedule:
