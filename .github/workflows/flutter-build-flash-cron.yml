@@ -1,0 +1,15 @@
+name: Flash Build
+
+on:
+  schedule:
+    # schedule build every day 30
+    - cron: "0 0 30 * *"
+  workflow_dispatch:
+
+jobs:
+  run-flutter-nightly-build:
+    uses: ./.github/workflows/flutter-build-flash.yml
+    secrets: inherit
+    with:
+      upload-artifact: true
+      upload-tag: "flash"
