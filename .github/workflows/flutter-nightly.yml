@@ -2,20 +2,14 @@ name: Flutter Nightly Build
 
 on:
   schedule:
-    # schedule build every night
+    # schedule build every day 30
     - cron: "0 0 30 * *"
   workflow_dispatch:
 
 jobs:
-  run-flutter-nightly-build-vipsnet:
-    uses: ./.github/workflows/flutter-build-vipsnet.yml
+  run-flutter-nightly-build:
+    uses: ./.github/workflows/flutter-build.yml
     secrets: inherit
     with:
       upload-artifact: true
-      upload-tag: "vipsnet"
-  run-flutter-nightly-build-flash:
-    uses: ./.github/workflows/flutter-build-flash.yml
-    secrets: inherit
-    with:
-      upload-artifact: true
-      upload-tag: "vipsnet"      
+      upload-tag: "nightly"
